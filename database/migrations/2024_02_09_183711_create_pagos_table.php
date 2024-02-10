@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('pagos', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer('importe');
+            $table->date('fecha');
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -23,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('pagos');
     }
 };

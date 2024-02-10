@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('servicios', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nombre');
+            $table->integer('precio');
+            $table->time('duracion'); // Campo de tipo time para representar la duración del servicio en horas y minutos
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('servicios');
     }
 };
