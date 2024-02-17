@@ -100,3 +100,40 @@ margin-top: 4%;
     margin-left: 4%;
     margin-right: 4%;
 }
+
+/* Estilos del botón */
+.x-primary-button {
+    /* Estilos de tamaño */
+    width: 80px; /* Ancho */
+    padding: 8px 16px; /* Relleno */
+    /* Estilos de color y fondo */
+    background-color: #ff9900; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    /* Estilos de borde y esquinas */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Esquinas redondeadas */
+    /* Estilos de tipografía */
+    font-size: 14px; /* Tamaño de fuente */
+    font-weight: 600; /* Grosor de fuente */
+    /* Estilos de interacción */
+    cursor: pointer; /* Cursor */
+    /* Estilos de efecto hover */
+    transition: background-color 0.3s ease; /* Transición de color de fondo */
+}
+
+/* Estilos de hover */
+.x-primary-button:hover {
+    background-color: #ff8c00; /* Cambio de color de fondo al pasar el ratón */
+}
+
+/* Estilos de enfoque */
+.x-primary-button:focus {
+    outline: none; /* Eliminar el contorno al enfocar */
+    box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.5); /* Sombra de enfoque */
+}
+
+/* Estilos de enfoque activo */
+.x-primary-button:focus:active {
+    box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.7); /* Sombra de enfoque activo */
+}
+

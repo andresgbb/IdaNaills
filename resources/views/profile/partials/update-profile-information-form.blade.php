@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('Profile Information') }}
+            {{ __('Información del perfil') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("Actualice la información del perfil y la dirección de correo electrónico de su cuenta.") }}
         </p>
     </header>
 
@@ -19,7 +19,7 @@
 
         <div>
             <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full " :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
@@ -49,6 +49,12 @@
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
+            {{-- <div class="flex justify-center w-full">
+                <button class="inline-block w-20 px-4 py-2 bg-orange-600 text-white rounded-md font-semibold text-sm hover:bg-orange-700 focus:outline-none focus:ring focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-100">Save</button>
+            </div> --}}
+
+
+
 
             @if (session('status') === 'profile-updated')
                 <p
