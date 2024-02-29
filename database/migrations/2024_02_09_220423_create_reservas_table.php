@@ -15,11 +15,10 @@ return new class extends Migration
         Schema::create('reservas', function (Blueprint $table) {
             $table->id();
             $table->date('fecha');
+            $table->time('hora');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('servicio_id');
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('servicio_id')->references('id')->on('servicios');
             $table->timestamps();
         });
     }
