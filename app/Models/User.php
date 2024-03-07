@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -44,6 +46,15 @@ class User extends Authenticatable
     ];
     function roles(){
         return $this->belongsToMany(Role::class);
+    }
+    public function hasRole(){
+        $user = Auth::user(); // Obtener el usuario autenticado
+        $userId= $user->id;
+        $role = DB::table('role_user')
+                ->where('user_id', $userId)
+                ->pluck('role_id') //sirve solo obtener la columna especificada
+                ->first();
+       return $role;
     }
     public function pagos(){
         return $this->hasMany(Pago::class);
