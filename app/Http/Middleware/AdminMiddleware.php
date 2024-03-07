@@ -23,7 +23,7 @@ class AdminMiddleware
         $userId= $user->id;
         $role = DB::table('role_user')
                 ->where('user_id', $userId)
-                ->pluck('role_id')
+                ->pluck('role_id') //sirve solo obtener la columna especificada
                 ->first();
         if ($user && $role == 1) {
             return $next($request);
