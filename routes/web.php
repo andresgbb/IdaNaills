@@ -29,6 +29,7 @@ Route::get('/reservas', function () {
 });
 Route::get('/reserva/confirmar', function () {return view('confirmar');});
 Route::post('/reserva/crearReserva', [ReservaController::class, 'crearReserva'])->name('reserva.crearReserva');
+Route::post('/admin/crearServicio', [AdminController::class, 'crearServicio'])->name('admin.crearServicio');
 Route::post('/reserva/confirmar',[ReservaController::class, 'confirmar'])->name('reserva.confirmar');
 
 Route::get('/dashboard', function () {
@@ -41,6 +42,7 @@ Route::get('/edit', function () {
 
 
 Route::post('/reserva/eliminar/{id}/{fecha}/{hora}', [ReservaController::class,'eliminar'])->name('reserva.eliminar');
+Route::post('/admin/eliminar/{id}', [AdminController::class,'eliminar'])->name('admin.eliminar');
 
  Route::middleware(['auth', 'admin'])->group(function () {
      Route::get('/admin', [AdminController::class, 'edit'])->name('/admin');
