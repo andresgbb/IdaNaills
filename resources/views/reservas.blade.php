@@ -24,6 +24,9 @@
                     @auth
                         <a href="{{ url('/profile') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">profile</a>
                         <a href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
+                        @if(Auth::user()->hasRole()==1)
+                            <a href="{{ url('/admin') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Admin</a>
+                        @endif
                     @else
                         <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Login</a>
 
@@ -46,7 +49,6 @@
                     <p>{{ $servicio->nombre }} - {{ $servicio->precio }}€</p>
                     <input type="checkbox" name="servicios[]" value="{{ $servicio->id }}"> <br>
                 </div>
-
             @endforeach
         </div>
         <div class="select-fecha">
