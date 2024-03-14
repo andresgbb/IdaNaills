@@ -57,28 +57,25 @@
             <div class="titulo"><h2 class="servicio">Servicios</h2></div>
 
             <div class="contServicios">
-
+                @php
+                    $servicios = App\Models\Servicio::all();
+                    // Dividir los servicios en dos grupos
+                    $serviciosDivididos = array_chunk($servicios->toArray(), ceil(count($servicios) / 2));
+                @endphp
                 <div>
                     <ul>
-                        <li>Manicura: 15€</li>
-                        <li>Manicura Shellac: 30€</li>
-                        <li>Relleno nuevo : 37 €</li>
-                        <li>Pedicura: 32€</li>
-                        <li>Relleno semipermanente : 32€</li>
-                        <li>Nail art cortas: 4€</li>
-                        <li>A nail art largas: 7€</li>
-                        <li>Cejas: 5€ </li>
+                        @foreach($serviciosDivididos[0] as $servicio)
+
+                            <li>{{$servicio['nombre']}}: {{$servicio['precio']}}€</li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="servicioder">
                     <ul>
-                        <li>Acrilico XXL: 40€</li>
-                        <li>Pedicura semipermanente: 37€</li>
-                        <li>Arreglar uña : 5€</li>
-                        <li>Manicura chico: 12€</li>
-                        <li>Labios: 4€</li>
-                        <li>Retirar acrilico: 15€ </li>
-                        <li>Arreglar uña Acrilico : 7€</li>
+                        @foreach($serviciosDivididos[1] as $servicio)
+
+                            <li>{{$servicio['nombre']}}: {{$servicio['precio']}}€</li>
+                        @endforeach
                     </ul>
                 </div>
 

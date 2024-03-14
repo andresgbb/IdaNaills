@@ -44,6 +44,7 @@
         @endphp
         <div class="cont-servicios">
             <p class="seleccionar">Selecciona los servicios:</p>
+            <p class="sele" id="seleccionar" hidden>debes seleccionar al menos un servicio</p>
             @foreach($servicios as $servicio)
                 <div class="servicios">
                     <p>{{ $servicio->nombre }} - {{ $servicio->precio }}€</p>
@@ -53,6 +54,8 @@
         </div>
         <div class="select-fecha">
             <p>Selecciona la fecha de la reserva (lunes a viernes):</p>
+            <p id="anterior" class="sele" hidden>No puedes seleccionar una fecha anterior al día de hoy</p>
+            <p id="finde" class="sele" hidden>Solo se pueden reservar de lunes a viernes</p>
             <input class="fecha_reserva" type="date" name="fecha_reserva" id="fecha_reserva" required>
         </div>
         <div class="caja-continuar">
@@ -86,8 +89,6 @@
         @empty
         <p>Todavía no has hecho ninguna reserva</p>
     @endforelse
-
-
     <script>
          function validarCheckbox(event) {
             // Obtener todos los checkboxes con el nombre "servicios[]"
@@ -104,10 +105,13 @@
 
             // Mostrar un mensaje de alerta si ningún checkbox está marcado
             if (!checked) {
-             alert('Debes seleccionar al menos un servicio.');
+                var paragraph = document.getElementById('seleccionar');
+                paragraph.style.display = 'block'; // Hacer el párrafo visible
+                //alert('Debes seleccionar al menos un servicio.');
                 event.preventDefault(); // Detener el envío del formulario
             }
         }
+
     </script>
 </body>
 </html>

@@ -11,11 +11,15 @@ function deshabilitarFinDeSemana(input) {
     if (date < currentDate) {
         // Establecer el valor del campo en vacío
         input.value = '';
-        alert('No puedes seleccionar una fecha anterior al día de hoy.');
+        var p = document.getElementById('anterior');
+        p.style.display = 'block';
+       // alert('No puedes seleccionar una fecha anterior al día de hoy.');
     } else if (date.getDay() === 0 || date.getDay() === 6) {
         // Si el día seleccionado es sábado o domingo, establecer el valor del campo en vacío
         input.value = '';
-        alert('Solo se pueden reservar de lunes a viernes.');
+        var finde=document.getElementById('finde');
+        finde.style.display = 'block';
+        //alert('Solo se pueden reservar de lunes a viernes.');
     }
 }
 
