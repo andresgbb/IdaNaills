@@ -14,7 +14,6 @@
         integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
 
-
         @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/home.css'])
 
 
