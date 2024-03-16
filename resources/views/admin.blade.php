@@ -27,9 +27,11 @@
                     @endauth
                 </div>
             @endif
+
             <div class="cajalogo">
                 <img class="logo" src="/img/logo.png" alt="">
             </div>
+
             <form action="{{ route('admin.crearServicio') }}" method="post" class="formulario">
                 @csrf
                 <div class="title">
@@ -48,9 +50,11 @@
                     <button type="submit" class="btn-crear">Crear</button>
                 </div>
             </form >
+
             <div class="title">
                 <h1>Eliminar servicio</h1>
             </div>
+
             @php
                 $servicios = App\Models\Servicio::all();
             @endphp
@@ -63,9 +67,11 @@
                     </form>
                 </div>
              @endforeach
+
             <div class="title">
                 <h1>Gestión de Reservas</h1>
             </div>
+
             @php
                 $reservas = App\Models\Reserva::all();
             @endphp

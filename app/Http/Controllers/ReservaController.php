@@ -40,7 +40,6 @@ class ReservaController extends Controller
         $reserva->fecha = $request->input('fecha_reserva');
         $reserva->hora = $request->hora_reserva;
         $reserva->save();
-        // Redireccionar o devolver una respuesta según sea necesario
         return view('home');
     }
     public function eliminar($id, $fecha, $hora)

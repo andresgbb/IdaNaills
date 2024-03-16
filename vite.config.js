@@ -11,6 +11,7 @@ export default defineConfig({
                 'resources/css/confirmacion.css',
                 'resources/css/admin.css',
                 'resources/css/reservas.css',
+                'resources/js/reservas.js'
             ],
             refresh: true,
         }),
